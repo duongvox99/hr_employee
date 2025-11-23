@@ -1,0 +1,23 @@
+# Production configuration
+# For development, use: docker compose -f docker-compose.dev.yml up
+# Usage: docker compose -f docker-compose.prod.yml up -d
+services:
+  api:
+    build: .
+    container_name: hr_employee_api_prod
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./hr_employees.db
+      - ENVIRONMENT=production
+    volumes:
+      # Mount existing database to app directory
+      - ./hr_employees.db:/app/hr_employees.db
+      # Do NOT mount code in production for better performance and security
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

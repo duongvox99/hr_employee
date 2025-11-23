@@ -1,0 +1,25 @@
+# Development configuration
+# For production, use: docker compose -f docker-compose.prod.yml up -d
+# Usage: docker compose -f docker-compose.dev.yml up
+services:
+  api:
+    build: .
+    container_name: hr_employee_api_dev
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./hr_employees.db
+      - ENVIRONMENT=development
+    volumes:
+      # Mount existing database to app directory
+      - ./hr_employees.db:/app/hr_employees.db
+      # Mount code for hot-reloading in development
+      - ./app:/app/app
+    restart: unless-stopped
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

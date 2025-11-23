@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+tests/
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Database (don't include local DB in image)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+docs/
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+
+# Temporary files
+*.tmp
+*.temp
+
+# Package managers
+.uv/
