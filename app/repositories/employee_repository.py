@@ -89,8 +89,8 @@ class EmployeeRepository:
             count_query = count_query.filter(pos_filter)
 
         # Apply status filter
-        if query_params.status:
-            status_filter = Employee.status == query_params.status.value
+        if query_params.status and len(query_params.status) > 0:
+            status_filter = Employee.status.in_(query_params.status)
             query = query.filter(status_filter)
             count_query = count_query.filter(status_filter)
 

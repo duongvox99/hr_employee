@@ -11,7 +11,7 @@ class EmployeeListQueryParams(BaseModel):
     search: str | None = Field(
         None, description="Search term for name, email, or phone", max_length=100
     )
-    status: EmployeeStatus | None = Field(
+    status: list[str] | None = Field(
         None, description="Filter by employee status (Active, Not Started, Terminated)"
     )
     location_id: list[int] | None = Field(
