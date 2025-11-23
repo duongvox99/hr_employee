@@ -157,7 +157,7 @@ uv pip install -e ".[dev]"
 The application uses environment variables for configuration. Create a `.env` file following `.env.example`:
 
 ```env
-DATABASE_URL=sqlite:///./hr_employees.db
+DATABASE_URL=sqlite+aiosqlite:///./hr_employees.db
 ENVIRONMENT=development
 ```
 
