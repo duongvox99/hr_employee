@@ -28,7 +28,7 @@ class EmployeeListQueryParams(BaseModel):
     )
     limit: int = Field(50, description="Number of results per page", ge=1, le=100)
     page: int = Field(
-        1, description="Page number (1-indexed). Use either page or cursor, not both.", ge=1
+        1, description="Page number (1-indexed)", ge=1
     )
 
 
