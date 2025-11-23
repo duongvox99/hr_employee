@@ -58,6 +58,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv venv && source .venv/bin/activate
 uv pip install -e ".[dev]"
 
+# Init .env file following sample file
+cp .env.example .env
+
 # Run migrations
 alembic upgrade head
 
@@ -66,6 +69,7 @@ python seed_data.py
 ```
 
 You will see a `hr_employees.db` SQLite file created in the project root.
+You can use the token after running script for testing API.
 
 ## Installation
 
