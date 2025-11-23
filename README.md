@@ -173,6 +173,14 @@ The API will be available at:
 - Interactive API docs: http://localhost:8000/docs
 - Redoc: http://localhost:8000/redoc
 
+## Sample requests
+### Get Employees with Search and Pagination
+```bash
+curl -X 'GET' \
+  'http://127.0.0.1:8000/api/v1/employees?search=john&limit=2&page=1' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJ1c2VyX2lkIjogMX0='
+```
 
 ## Set up pre-commit hooks
 
